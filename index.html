@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 7 Maps</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="neighborhoods.js"></script>
+        <script src="points.js"></script>
+    </head>
+    <body>
+        <script>
+            var width = 800,
+                height = 600;
+            
+            var svg = d3.select( "body" )
+                .append( "svg" )
+                .attr( "width", width )
+                .attr( "height", height );
+            
+            var g = svg.append( "g" );
+            
+            var albersProjection = d3.geoAlbers()
+                .scale( 190000 )
+                .rotate( [71.057,0] )
+                .center( [0, 42.313] )
+                .translate( [width/2,height/2] );
+            
+            var geoPath = d3.geoPath()
+                .projection( albersProjection );
+            
+            g.selectAll( "path" )
+                .data( neighborhoods_json.features )
+                .enter()
+                .append( "path" )
+                .attr( "fill", "#ccc" )
+                .attr( "d", geoPath );
+
+            var p = svg.append( "g" );
+            p.selectAll( "path" )
+                .data( points_json.features )
+                .enter()
+                .append( "path" )
+                .attr( "fill", "red" )
+                .attr( "d", geoPath )
+            
+            var r = svg.append("g");
+            var line = r.append("line")
+                        .attr("x1", 384.549)
+                        .attr("y1", 157.541)
+                        .attr("x2", 377.861)
+                        .attr("y2", 172.525)
+                        .attr("stroke", "steelblue")
+            
+            var line2 = r.append("line")
+                        .attr("x1", 377.861)
+                        .attr("y1", 172.525)
+                        .attr("x2", 374.517)
+                        .attr("y2", 180.147)
+                        .attr("stroke", "steelblue")            
+
+            var line3 = r.append("line")
+                        .attr("x1", 374.517)
+                        .attr("y1", 180.147)
+                        .attr("x2", 364.483)
+                        .attr("y2", 205.558)
+                        .attr("stroke", "steelblue")
+            
+            var line4 = r.append("line")
+                        .attr("x1", 364.483)
+                        .attr("y1", 205.558)
+                        .attr("x2", 351.941)
+                        .attr("y2", 217.415)
+                        .attr("stroke", "steelblue") 
+            
+            var line5 = r.append("line")
+                        .attr("x1", 351.941)
+                        .attr("y1", 217.415)
+                        .attr("x2", 336.888)
+                        .attr("y2", 236.05)
+                        .attr("stroke", "steelblue")
+            
+            var line6 = r.append("line")
+                        .attr("x1", 336.888)
+                        .attr("y1", 236.05)
+                        .attr("x2", 329.359)
+                        .attr("y2", 250.452)
+                        .attr("stroke", "steelblue")            
+
+            var line7 = r.append("line")
+                        .attr("x1", 329.359)
+                        .attr("y1", 250.452)
+                        .attr("x2", 325.176)
+                        .attr("y2", 255.535)
+                        .attr("stroke", "steelblue")
+            
+            var line8 = r.append("line")
+                        .attr("x1", 325.176)
+                        .attr("y1", 255.535)
+                        .attr("x2", 316.808)
+                        .attr("y2", 274.174)
+                        .attr("stroke", "steelblue") 
+            
+            var line9 = r.append("line")
+                        .attr("x1", 316.808)
+                        .attr("y1", 274.174)
+                        .attr("x2", 307.607)
+                        .attr("y2", 282.645)
+                        .attr("stroke", "steelblue")    
+
+            var line10 = r.append("line")
+                        .attr("x1", 307.607)
+                        .attr("y1", 282.645)
+                        .attr("x2", 297.567)
+                        .attr("y2", 294.505)
+                        .attr("stroke", "steelblue")
+            
+            var line11 = r.append("line")
+                        .attr("x1", 297.567)
+                        .attr("y1", 294.505)
+                        .attr("x2", 254.882)
+                        .attr("y2", 348.73)
+                        .attr("stroke", "steelblue")            
+
+            var line12 = r.append("line")
+                        .attr("x1", 254.882)
+                        .attr("y1", 348.73)
+                        .attr("x2", 251.526)
+                        .attr("y2", 363.988)
+                        .attr("stroke", "steelblue")
+            
+            var line13 = r.append("line")
+                        .attr("x1", 251.526)
+                        .attr("y1", 363.988)
+                        .attr("x2", 247.333)
+                        .attr("y2", 380.095)
+                        .attr("stroke", "steelblue") 
+            
+            var line14 = r.append("line")
+                        .attr("x1", 247.333)
+                        .attr("y1", 380.095)
+                        .attr("x2", 243.974)
+                        .attr("y2", 398.747)
+                        .attr("stroke", "steelblue")
+            
+            var line15 = r.append("line")
+                        .attr("x1", 243.974)
+                        .attr("y1", 398.747)
+                        .attr("x2", 244.799)
+                        .attr("y2", 415.707)
+                        .attr("stroke", "steelblue")            
+
+            var line16 = r.append("line")
+                        .attr("x1", 244.799)
+                        .attr("y1", 415.707)
+                        .attr("x2", 248.139)
+                        .attr("y2", 426.734)
+                        .attr("stroke", "steelblue")
+            
+            var line17 = r.append("line")
+                        .attr("x1", 248.139)
+                        .attr("y1", 426.734)
+                        .attr("x2", 269.062)
+                        .attr("y2", 419.114)
+                        .attr("stroke", "steelblue") 
+            
+            var line18 = r.append("line")
+                        .attr("x1", 269.062)
+                        .attr("y1", 419.114)
+                        .attr("x2", 289.15)
+                        .attr("y2", 406.405)
+                        .attr("stroke", "steelblue") 
+
+            var line19 = r.append("line")
+                        .attr("x1", 289.15)
+                        .attr("y1", 406.405)
+                        .attr("x2", 309.235)
+                        .attr("y2", 395.39)
+                        .attr("stroke", "steelblue")
+                        
+            var line20 = r.append("line")
+                        .attr("x1", 309.235)
+                        .attr("y1", 395.39)
+                        .attr("x2", 320.118)
+                        .attr("y2", 375.892)
+                        .attr("stroke", "steelblue")
+            
+            var line21 = r.append("line")
+                        .attr("x1", 320.118)
+                        .attr("y1", 375.892)
+                        .attr("x2", 327.657)
+                        .attr("y2", 345.374)
+                        .attr("stroke", "steelblue") 
+            
+            var line22 = r.append("line")
+                        .attr("x1", 327.657)
+                        .attr("y1", 345.374)
+                        .attr("x2", 346.9)
+                        .attr("y2", 325.034)
+                        .attr("stroke", "steelblue") 
+
+            var line23 = r.append("line")
+                        .attr("x1", 346.9)
+                        .attr("y1", 325.034)
+                        .attr("x2", 363.63)
+                        .attr("y2", 310.628)
+                        .attr("stroke", "steelblue")  
+
+            var line22 = r.append("line")
+                        .attr("x1", 363.63)
+                        .attr("y1", 310.628)
+                        .attr("x2", 377.013)
+                        .attr("y2", 296.222)
+                        .attr("stroke", "steelblue") 
+
+            var line23 = r.append("line")
+                        .attr("x1", 377.013)
+                        .attr("y1", 296.222)
+                        .attr("x2", 382.866)
+                        .attr("y2", 308.088)
+                        .attr("stroke", "steelblue") 
+</script>
+      </body>
+    
+</html>
